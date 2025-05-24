@@ -35,8 +35,22 @@ struct SettingsView: View {
                         Image(systemName: "moonphase.first.quarter")
                     }
                 }
+               
+                
+                HStack{
+                    
+                    Text("Go back to cover")
+                    Spacer()
+                    Image (systemName: "book.pages.fill")
+                    
+                }
+                        .onTapGesture {
+                            book.showCoverPage()
+                            
+                        }
                 
                 Spacer()
+                
             }
             .padding()
             .navigationTitle("Statistics")
