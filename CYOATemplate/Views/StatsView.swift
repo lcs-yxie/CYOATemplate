@@ -23,6 +23,10 @@ struct StatsView: View {
         NavigationStack {
             VStack {
                 Text("A total of x pages out of y pages overall have been visited in this story.")
+                    .padding(.vertical)
+                
+                Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
+                    .bold()
                 
                 Chart {
                            ForEach(guys.indices, id: \.self) { index in
