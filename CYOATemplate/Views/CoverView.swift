@@ -38,9 +38,9 @@ struct CoverView: View {
                     .frame(maxHeight: .infinity)
                     .padding()
 
-//                if book.isNotReadyToRead {
-//                    ProgressView()
-//                } else {
+                if book.isNotReadyToRead {
+                    ProgressView()
+                } else {
                     VStack(spacing: 20) {
 
                         Button {
@@ -57,7 +57,7 @@ struct CoverView: View {
                         .buttonStyle(.borderless)
                     }
                     .padding(.bottom, 50)
-//                }
+                }
             }
         }
     }
