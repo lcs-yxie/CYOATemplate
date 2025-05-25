@@ -46,6 +46,8 @@ struct SettingsView: View {
                 }
                         .onTapGesture {
                             book.showCoverPage()
+                            showing = false
+
                             
                         }
                 
