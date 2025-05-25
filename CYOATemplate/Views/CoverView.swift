@@ -39,7 +39,9 @@ struct CoverView: View {
                     .padding()
 
                 if book.isNotReadyToRead {
+                    
                     ProgressView()
+                    
                 } else {
                     VStack(spacing: 20) {
 
