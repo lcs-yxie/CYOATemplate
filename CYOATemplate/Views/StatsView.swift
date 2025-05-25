@@ -20,7 +20,7 @@ struct StatsView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("A total of \(book.currentPageId ?? 0) pages out of y pages overall have been visited in this story.")
+                Text("You are on page \(book.currentPageId ?? 0) out of 81 pages overall in this story.")
             }
             .padding()
             .navigationTitle("Statistics")
