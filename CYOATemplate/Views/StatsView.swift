@@ -13,12 +13,14 @@ struct StatsView: View {
     
     // Whether this view is showing in the sheet right now
     @Binding var showing: Bool
+    // Tracks overall state as the reader reads the book
+    @Bindable private var book = BookStore()
     
     // MARK: Computed properties
     var body: some View {
         NavigationStack {
             VStack {
-                Text("A total of x pages out of y pages overall have been visited in this story.")
+                Text("You are on page \(book.currentPageId ?? 0) out of 81 pages overall in this story.")
             }
             .padding()
             .navigationTitle("Statistics")
