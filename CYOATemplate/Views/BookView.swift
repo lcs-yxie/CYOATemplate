@@ -88,10 +88,10 @@ struct BookView: View {
             // Respond when app is backgrounded, foregrounded, or made inactive
             .onChange(of: scenePhase) {
                 if scenePhase == .inactive {
-                    print("Active")
+                    print("Inactive")
                     Task {
                         try await book.saveState()
-                        print("Reader's state for this book has been restored.")
+                        print("Reader's state for this book has been saved.")
                     }
                 } else if scenePhase == .active {
                     print("Active")
