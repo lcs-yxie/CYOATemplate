@@ -25,17 +25,17 @@ struct StatsView: View {
    
     // MARK: Computed properties
     var body: some View {
+        
         NavigationStack {
+            
             VStack {
                 
-
-                
-//                Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
-//                    .bold()
-                
                 if let page = viewModel.page {
+                    
                     Text("You are on page \(page.id) out of 82 pages overall in this story.")
-                    Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
+                        .font(.headline)
+                        .padding(.vertical)
+                    Text("See the percentages of Lydia's relationship statuses to Chris, Luke and Bobby:")
                         .font(.headline)
                     
                     //DEBUG
@@ -54,12 +54,27 @@ struct StatsView: View {
                                           x: .value("Guys", guys[index]),
                                           y: .value("Relationship status", steps[index] )
                                       )
+                                      .foregroundStyle(by: .value("Person", guys[index]))
                                   }
                               }
+                              .chartYScale(domain: 0...100)
                               .frame(height: 300)
+                              .padding()
+                    
+                    Spacer()
                           
                       } else {
-                          Text("Loading data...")
+                          
+                          VStack {
+                              Text("You are on the cover page. Enjoy reading!")
+                                  .padding(.vertical)
+                              
+                              Text("No other Data available right now. Continue to the next page to see the relationship percentages.")
+                                  .padding()
+                              
+                              Spacer()
+                          }
+                
                       }
                   }
             
