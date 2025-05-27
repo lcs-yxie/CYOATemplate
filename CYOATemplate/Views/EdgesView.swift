@@ -22,11 +22,7 @@ struct EdgesView: View {
     // then EdgesView will be re-loaded, updating the text
     let viewModel: EdgesViewModel
     
-//    // Whether the challenge/quiz view is being shown right now
-//    @State private var showingQuizView = false
-    
-//    // Whether the quiz question was answered correctly
-//    @State private var quizResult: QuizResult = .quizNotActive
+
 
     // MARK: Computed properties
     var body: some View {
@@ -70,26 +66,11 @@ struct EdgesView: View {
                             // DEBUG
                             print("Current page number is: \(book.currentPageId!)")
                             print("==== about to change page ====")
+
                             
-//                            if edge.prompt.contains("Turn to the next page") {
-//                                
-//                                if quizResult == .quizNotActive ||
-//                                    quizResult == .wasNotCorrect {
-//                                    showingQuizView = true
-//                                } else {
-//                                    
-//                                    // Question answered correctly, allow reader to move on
-//                                    book.read(edge.toPage)
-//
-//                                }
-//                                
-//                            } else {
-//
                                 // Move to page edge connects to
-                                // (No prompt for quiz on pages that have multiple options)
                                 book.read(edge.toPage)
-//
-//                            }
+
                             
                             // DEBUG
                             print("==== changed page ====")
@@ -105,14 +86,7 @@ struct EdgesView: View {
             }
                 
         }
-        // Show the quiz view
-//        .sheet(isPresented: $showingQuizView) {
-//            VocabularyQuizView(
-//                showing: $showingQuizView,
-//                result: $quizResult
-//            )
-//            .presentationDetents([.medium, .fraction(0.33)])
-//        }
+      
 
 
     }
