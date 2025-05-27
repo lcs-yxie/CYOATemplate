@@ -35,7 +35,7 @@ struct EdgesView: View {
             
             // Have edges loaded yet?
             if let edges = viewModel.edges {
-
+                
                 // Are there no edges for this page?
                 // NOTE: This should not happen if database is populated correctly.
                 if edges.isEmpty {
@@ -48,7 +48,7 @@ struct EdgesView: View {
                                 book.showCoverPage()
                             }
                     }
-
+                    
                 } else {
                     
                     // Show the edges for this page
@@ -85,9 +85,9 @@ struct EdgesView: View {
 //                                
 //                            } else {
 //
-//                                // Move to page edge connects to
-//                                // (No prompt for quiz on pages that have multiple options)
-//                                book.read(edge.toPage)
+                                // Move to page edge connects to
+                                // (No prompt for quiz on pages that have multiple options)
+                                book.read(edge.toPage)
 //
 //                            }
                             
