@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CYOATemplateApp: App {
+    @StateObject private var bookStore = BookStore()
+    
     var body: some Scene {
         WindowGroup {
             AppEntryView()
+                .environmentObject(bookStore)
         }
     }
 }

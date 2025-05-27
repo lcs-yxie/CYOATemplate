@@ -12,6 +12,9 @@ struct Page: Identifiable, Codable {
     // MARK: Stored properties
     var id: Int
     var narrative: String
+    var chris: Int
+    var luke: Int
+    var bobby: Int
     var image: String?
     var endingContext: String?
     var endingTypeId: Int?
@@ -21,6 +24,9 @@ struct Page: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case narrative
+        case chris
+        case luke
+        case bobby
         case image
         case endingContext = "ending_context"
         case endingTypeId = "ending_type_id"
