@@ -21,6 +21,9 @@ struct BookView: View {
     // Whether the settings view is being shown right now
     @State private var showingSettingsView = false
     
+    // Whether the page picker view is being shown right now
+    @State private var showingPageView = false
+    
     // Track when app is foregrounded, backgrounded, or made inactive
     @Environment(\.scenePhase) var scenePhase
 
@@ -73,6 +76,16 @@ struct BookView: View {
                     }
 
                 }
+                
+                // Show the page picker
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        showingPageView = true
+                    } label: {
+                        Image(systemName: "page")
+                    }
+
+                }
 
             }
             // Show the statistics view
@@ -84,6 +97,10 @@ struct BookView: View {
                 SettingsView(showing: $showingSettingsView)
                     // Make the book state accessible to SettingsView
                     .environment(book)
+            }
+            // Show the page view
+            .sheet(isPresented: $showingPageView) {
+                PagePickerView(showing: $showingPageView)
             }
             // Respond when app is backgrounded, foregrounded, or made inactive
             .onChange(of: scenePhase) {

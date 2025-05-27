@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64033A9F2DE6418200868DBF /* PagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64033A9E2DE6417800868DBF /* PagePicker.swift */; };
+		64033A9F2DE6418200868DBF /* PagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64033A9E2DE6417800868DBF /* PagePickerView.swift */; };
 		8123CD292A34F99E00F9DF1C /* StoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123CD282A34F99E00F9DF1C /* StoryInformation.swift */; };
 		8123CD2B2A34F9C100F9DF1C /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123CD2A2A34F9C100F9DF1C /* SharedFunctions.swift */; };
 		8123CD2D2A34FE4800F9DF1C /* DirectedGraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123CD2C2A34FE4800F9DF1C /* DirectedGraphBuilder.swift */; };
@@ -62,7 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		64033A9E2DE6417800868DBF /* PagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePicker.swift; sourceTree = "<group>"; };
+		64033A9E2DE6417800868DBF /* PagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePickerView.swift; sourceTree = "<group>"; };
 		8123CD162A34CF7B00F9DF1C /* GraphGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123CD282A34F99E00F9DF1C /* StoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInformation.swift; sourceTree = "<group>"; };
 		8123CD2A2A34F9C100F9DF1C /* SharedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				81C784AA2A28AD0B001BC867 /* PageView.swift */,
 				812F51382C0D01A300C1A270 /* StatsView.swift */,
 				812F513A2C0D06C900C1A270 /* SettingsView.swift */,
-				64033A9E2DE6417800868DBF /* PagePicker.swift */,
+				64033A9E2DE6417800868DBF /* PagePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,7 +375,7 @@
 			files = (
 				81C198BB2A251B1B0047A4B3 /* Page.swift in Sources */,
 				81C198B92A251AE00047A4B3 /* BookView.swift in Sources */,
-				64033A9F2DE6418200868DBF /* PagePicker.swift in Sources */,
+				64033A9F2DE6418200868DBF /* PagePickerView.swift in Sources */,
 				81C198BD2A251B2B0047A4B3 /* Edge.swift in Sources */,
 				812F51052C0C9FAD00C1A270 /* Supabase.swift in Sources */,
 				812F51412C0DC94200C1A270 /* EdgesViewModel.swift in Sources */,
