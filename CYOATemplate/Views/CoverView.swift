@@ -11,8 +11,9 @@ struct CoverView: View {
     
     // MARK: Stored properties
     
-    // MARK: Stored properties
+    // Access the book state through the environment
     @Environment(BookStore.self) var book
+
     
     // MARK: Computed properties
     var body: some View {
@@ -37,7 +38,11 @@ struct CoverView: View {
                     .frame(maxHeight: .infinity)
                     .padding()
 
-                if !book.isNotReadyToRead {
+                if book.isNotReadyToRead {
+                    
+                    ProgressView()
+                    
+                } else {
                     VStack(spacing: 20) {
 
                         Button {
@@ -51,10 +56,9 @@ struct CoverView: View {
                                 .foregroundColor(.black)
                                 .cornerRadius(10)
                         }
+                        .buttonStyle(.borderless)
                     }
                     .padding(.bottom, 50)
-                } else {
-                    ProgressView()
                 }
             }
         }
