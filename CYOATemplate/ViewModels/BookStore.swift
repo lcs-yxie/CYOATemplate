@@ -11,7 +11,7 @@ import PostgREST
 // Stores everything related to tracking current state
 // as the reader reads this CYOA book
 @Observable
-class BookStore: Observable {
+class BookStore: ObservableObject {
     
     // MARK: Stored properties
     

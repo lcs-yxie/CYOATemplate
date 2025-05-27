@@ -14,54 +14,95 @@ struct StatsView: View {
     
     // Whether this view is showing in the sheet right now
     @Binding var showing: Bool
-    // Tracks overall state as the reader reads the book
-    @Bindable private var book = BookStore()
+//    // Tracks overall state as the reader reads the book
+//    @Bindable private var book = BookStore()
+   
     
-    let guys = ["Chris", "Luke", "Bobby"]
-    let steps = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    // Access the book state through the environment
+    @Environment(BookStore.self) var book
+    let viewModel: PageViewModel
     
+   
     // MARK: Computed properties
     var body: some View {
+        
         NavigationStack {
+            
             VStack {
-
-                Text("You are on page \(book.currentPageId ?? 0) out of 81 pages overall in this story.")
-
-                Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
-                    .bold()
                 
-                Chart {
-                           ForEach(guys.indices, id: \.self) { index in
-                               BarMark(x: .value("Guys", guys[index]), y: .value("Relationship status", steps[index]))
-                                       .foregroundStyle(by: .value("Day", guys[index]))
-                                         .annotation {
-                                         Text("\(steps[index])")
-                                                       }
+                if let page = viewModel.page {
+                    
+                    Text("You are on page \(page.id) out of 82 pages overall in this story.")
+                        .font(.headline)
+                        .padding(.vertical)
+                    Text("See the percentages of Lydia's relationship statuses to Chris, Luke and Bobby:")
+                        .font(.headline)
+                    
+                    //DEBUG
+                    let _ = print ("\(page.chris )")
+                    let _ = print ("\(page.bobby )")
+                    let _ = print ("\(page.luke )")
+                    
+                    
+                          let guys = ["Chris", "Bobby", "Luke"]
+                          let steps = [page.chris, page.bobby, page.luke]
+                          
+                             
+                              Chart {
+                                  ForEach(guys.indices, id: \.self) { index in
+                                      BarMark(
+                                          x: .value("Guys", guys[index]),
+                                          y: .value("Relationship status", steps[index] )
+                                      )
+                                      .foregroundStyle(by: .value("Person", guys[index]))
+                                  }
                               }
-                       }
-
-            }
-            .padding()
-            .navigationTitle("Statistics")
-            // Toolbar to show buttons for various actions
-            .toolbar {
+                              .chartYScale(domain: 0...100)
+                              .frame(height: 300)
+                              .padding()
+                    
+                    Spacer()
+                          
+                      } else {
+                          
+                          VStack {
+                              Text("You are on the cover page. Enjoy reading!")
+                                  .padding(.vertical)
+                              
+                              Text("No other Data available right now. Continue to the next page to see the relationship percentages.")
+                                  .padding()
+                              
+                              Spacer()
+                          }
                 
-                // Hide this view
-                ToolbarItem(placement: .automatic) {
-                    Button {
-                        showing = false
-                    } label: {
-                        Text("Done")
-                            .bold()
-                    }
+                      }
+                  }
+            
+            .navigationTitle("Statistics")
+                // Toolbar to show buttons for various actions
+                .toolbar {
+                    
+                    // Hide this view
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            showing = false
+                        } label: {
+                            Text("Done")
+                                .bold()
+                        }
 
+                    }
                 }
-            }
+
+              }
         }
     }
     
-}
+
 
 #Preview {
-    StatsView(showing: Binding.constant(true))
+    StatsView(
+        showing: Binding.constant(true),
+        viewModel: PageViewModel(book: BookStore())
+    )
 }
