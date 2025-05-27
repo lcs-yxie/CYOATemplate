@@ -28,23 +28,26 @@ struct StatsView: View {
         NavigationStack {
             VStack {
                 
-                Text("You are on page \(book.currentPageId ?? 0) out of 82 pages overall in this story.")
+
                 
 //                Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
 //                    .bold()
                 
                 if let page = viewModel.page {
+                    Text("You are on page \(page.id) out of 82 pages overall in this story.")
+                    Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
+                        .font(.headline)
                     
+                    //DEBUG
                     let _ = print ("\(page.chris )")
                     let _ = print ("\(page.bobby )")
                     let _ = print ("\(page.luke )")
+                    
+                    
                           let guys = ["Chris", "Bobby", "Luke"]
                           let steps = [page.chris, page.bobby, page.luke]
                           
-                          VStack {
-                              Text("See the percentages of Lydia's relationships statuses to Chris, Luke and Bobby:")
-                                  .font(.headline)
-                              
+                             
                               Chart {
                                   ForEach(guys.indices, id: \.self) { index in
                                       BarMark(
@@ -54,7 +57,7 @@ struct StatsView: View {
                                   }
                               }
                               .frame(height: 300)
-                          }
+                          
                       } else {
                           Text("Loading data...")
                       }
